@@ -1,0 +1,16 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: python:3.9-slim-buster 
+
+    steps:
+    - name: Install dependencies
+      run: apt-get update && apt-get install -y make git
+
+    - name: Run tests
+      run: make test 
