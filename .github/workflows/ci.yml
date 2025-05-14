@@ -16,4 +16,7 @@ jobs:
       run: apt-get update && apt-get install -y python3 make git
 
     - name: Run tests
-      run: make test 
+      run:
+      - ls -lrt
+      - cat makefile
+      - make test 
