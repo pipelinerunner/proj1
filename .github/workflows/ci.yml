@@ -15,6 +15,9 @@ jobs:
     - name: Install dependencies
       run: apt-get update && apt-get install -y python3 make git
 
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
     - name: Run tests
       run: |
           ls -lrt
