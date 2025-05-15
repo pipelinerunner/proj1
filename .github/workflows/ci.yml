@@ -6,7 +6,11 @@ on:
 
 jobs:
   build:
+    permissions:
+      contents: read
+
     runs-on: ubuntu-latest #python:3.9-slim-buster 
+
     container:
       image: python:3.9-slim-buster
       options: --user root
