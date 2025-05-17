@@ -1,4 +1,4 @@
-from flask import render_template, current_app as app
+from flask import render_template, render_template_string, request, current_app as app
 
 import cpuinfo
 import psutil
@@ -28,3 +28,17 @@ def info():
 @app.route("/monitor")
 def monitor():
     return render_template("monitor.html")
+
+@app.route('/vulnerable')
+def vulnerable():
+    # Get the username parameter from the request
+    username = request.args.get('username', 'Guest')
+
+    # Create a template with the username - THIS IS VULNERABLE!
+    template = f'''
+    <h1>Hello, {username}!</h1>
+    <p>Welcome to our application.</p>
+    '''
+
+    # Render the template with the user input directly included
+    return render_template_string(template)
